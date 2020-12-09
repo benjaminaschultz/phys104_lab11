@@ -296,16 +296,15 @@ def show_signal_buildup_from_components(
         gs = fig.add_gridspec(1, 1)
         ax1 = fig.add_subplot(gs[0, 0])
         
-        if n < 10:
-            for j in range(n):
-                _ys, _ts = generate_waveform_from_sinewaves(
-                    [amplitudes[j]],
-                    [frequencies[j]],
-                    [phases[j]],
-                    duration=duration,
-                    sampling_rate=44100
-                )
-                ax1.plot(_ts, _ys * normalized_amplitudes[j], '--', alpha=0.5)
+        for j in range(n):
+            _ys, _ts = generate_waveform_from_sinewaves(
+                [amplitudes[j]],
+                [frequencies[j]],
+                [phases[j]],
+                duration=duration,
+                sampling_rate=44100
+            )
+            ax1.plot(_ts, _ys * normalized_amplitudes[j], '--', alpha=0.5)
 
         ys, ts = generate_waveform_from_sinewaves(
             amplitudes[:n],
