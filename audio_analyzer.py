@@ -411,7 +411,7 @@ def fourier_analysis(selected_instrument, t0=0, t1=None, rel_height=0.2):
     )
 
 
-def generate_sine_wave():
+def generate_sine_wave(t0, t1, y0, y1):
     ys, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -433,10 +433,12 @@ def generate_sine_wave():
     plt.plot(ts, ys, '-k')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
+    plt.ylim(y0, y1)
+    plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
-def generate_a_different_sine_wave():
+def generate_a_different_sine_wave(t0, t1, y0, y1):
     ys, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[587.33],
@@ -458,10 +460,12 @@ def generate_a_different_sine_wave():
     plt.plot(ts, ys, '-k')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
+    plt.ylim(y0, y1)
+    plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
-def generate_two_sine_waves_with_different_frequencies():
+def generate_two_sine_waves_with_different_frequencies(t0, t1, y0, y1):
     y1s, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -496,11 +500,13 @@ def generate_two_sine_waves_with_different_frequencies():
     plt.plot(ts, y2s, '--b', label='y2')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
+    plt.ylim(y0, y1)
+    plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
 
-def generate_two_sine_waves_with_different_phases():
+def generate_two_sine_waves_with_different_phases(t0, t1, y0, y1):
     y1s, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -533,6 +539,8 @@ def generate_two_sine_waves_with_different_phases():
     plt.plot(ts, ys, '-k')
     plt.plot(ts, y1s, '--r', label='y1')
     plt.plot(ts, y2s, '--b', label='y2')
+    plt.ylim(y0, y1)
+    plt.xlim(t0, t1)
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
     plt.show()
