@@ -411,7 +411,7 @@ def fourier_analysis(selected_instrument, t0=0, t1=None, rel_height=0.2):
     )
 
 
-def generate_sine_wave(t0, t1, y0, y1):
+def generate_sine_wave(t0=None, t1=None, y0=None, y1=None):
     ys, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -433,12 +433,13 @@ def generate_sine_wave(t0, t1, y0, y1):
     plt.plot(ts, ys, '-k')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
-    plt.ylim(y0, y1)
-    plt.xlim(t0, t1)
+    if t0 is not None:
+        plt.ylim(y0, y1)
+        plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
-def generate_a_different_sine_wave(t0, t1, y0, y1):
+def generate_a_different_sine_wave(t0=None, t1=None, y0=None, y1=None):
     ys, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[587.33],
@@ -460,12 +461,13 @@ def generate_a_different_sine_wave(t0, t1, y0, y1):
     plt.plot(ts, ys, '-k')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
-    plt.ylim(y0, y1)
-    plt.xlim(t0, t1)
+    if t0 is not None:
+        plt.ylim(y0, y1)
+        plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
-def generate_two_sine_waves_with_different_frequencies(t0, t1, y0, y1):
+def generate_two_sine_waves_with_different_frequencies(t0=None, t1=None, y0=None, y1=None):
     y1s, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -500,13 +502,14 @@ def generate_two_sine_waves_with_different_frequencies(t0, t1, y0, y1):
     plt.plot(ts, y2s, '--b', label='y2')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
-    plt.ylim(y0, y1)
-    plt.xlim(t0, t1)
+    if t0 is not None:
+        plt.ylim(y0, y1)
+        plt.xlim(t0, t1)
     plt.show()
     display.display(Audio(outf_name))
 
 
-def generate_two_sine_waves_with_different_phases(t0, t1, y0, y1):
+def generate_two_sine_waves_with_different_phases(t0=None, t1=None, y0=None, y1=None):
     y1s, ts = generate_waveform_from_sinewaves(
         amplitudes=[1],
         frequencies=[440],
@@ -539,8 +542,9 @@ def generate_two_sine_waves_with_different_phases(t0, t1, y0, y1):
     plt.plot(ts, ys, '-k')
     plt.plot(ts, y1s, '--r', label='y1')
     plt.plot(ts, y2s, '--b', label='y2')
-    plt.ylim(y0, y1)
-    plt.xlim(t0, t1)
+    if t0 is not None:
+        plt.ylim(y0, y1)
+        plt.xlim(t0, t1)
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
     plt.show()
